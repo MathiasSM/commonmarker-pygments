@@ -1,42 +1,24 @@
-# CommonMarker+Rouge
-
-[![Gem](https://img.shields.io/gem/v/commonmarker-rouge.svg?maxAge=2592000)](https://rubygems.org/gems/commonmarker-rouge)
-[![Travis](https://img.shields.io/travis/sandfoxme/commonmarker-rouge.svg?maxAge=2592000)](https://travis-ci.org/sandfoxme/commonmarker-rouge)
-[![Code Climate](https://img.shields.io/codeclimate/github/sandfoxme/commonmarker-rouge.svg?maxAge=2592000)](https://codeclimate.com/github/sandfoxme/commonmarker-rouge)
-[![Code Climate](https://img.shields.io/codeclimate/coverage/github/sandfoxme/commonmarker-rouge.svg?maxAge=2592000)](https://codeclimate.com/github/sandfoxme/commonmarker-rouge/coverage)
-[![Gemnasium](https://img.shields.io/gemnasium/sandfoxme/commonmarker-rouge.svg?maxAge=2592000)](https://gemnasium.com/sandfoxme/commonmarker-rouge)
+# CommonMarker+Pygments
 
 A [CommonMarker](https://rubygems.org/gems/commonmarker) wrapper with
-syntax highlight support by [Rouge](https://rubygems.org/gems/rouge).
+syntax highlight support by [Pygments](https://rubygems.org/gems/pygments.rb). Based on
+[commonmarker-rouge](https://github.com/sandfoxme/commonmarker-rouge).
 
-## Installation
-
-Add these lines to your application's Gemfile:
-
-```ruby
-gem 'commonmarker-rouge'
-```
 
 ## Usage
 
 ```ruby
-# use default CommonMarker class and Rouge::Formatters::HTML formatter
-CommonMarker::Rouge.render_html(content)
+# use default CommonMarker class and Pygments::Formatters::HTML formatter
+CommonMarker::Pygments.render_html(content)
 
 # get CommonMarker parsed AST
-CommonMarker::Rouge.render_doc(content)
+CommonMarker::Pygments.render_doc(content)
 
 # pass options to CommonMarker
-CommonMarker::Rouge.render_html(content, [:SAFE, :SOURCEPOS])
-
-# use custom CommonMarker wrapper (must provide compatible render_doc)
-CommonMarker::Rouge.render_html(content, cmark_class: CommonMarkerWrapper)
-
-# use custom Rouge formatter
-CommonMarker::Rouge.render_html(content, formatter: Rouge::Formatters::HTMLLinewise)
+CommonMarker::Pygments.render_html(content, [:SAFE, :SOURCEPOS])
 
 # pass some options to Rouge
-CommonMarker::Rouge.render_html(content, options: { css_class: 'custom-class' })
+CommonMarker::Rouge.render_html(content, :DEFAULT, :options => { css_class: 'custom-class' })
 ```
 
 ## License
