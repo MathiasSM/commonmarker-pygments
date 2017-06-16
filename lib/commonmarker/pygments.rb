@@ -26,9 +26,14 @@ module CommonMarker
 
           source = node.string_content
 
-          puts pygments_options
+          # node.fence_info shall be parsed to know about custom options
+          node.fence_info.split.slice(1 .. -1).each do |op|
+            o1,o2 = op.split('=')
+            pygments_options[o1.to_sym] = o2
+          end
+            
 
-          html = '<figure class="language-' + HTMLEntities.new.decode(node.fence_info) + '">' + ::Pygments.highlight(source, pygments_options) + '</figure>'
+          html = '<figure class="highlight language-' + HTMLEntities.new.decode(node.fence_info) + '">' + ::Pygments.highlight(source, pygments_options) + '</figure>'
 
           new_node = ::CommonMarker::Node.new(:html)
           new_node.string_content = html
