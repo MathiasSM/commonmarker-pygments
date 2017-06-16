@@ -26,8 +26,6 @@ module CommonMarker
 
           source = node.string_content
 
-		  puts node.fence_info
-		  # node.fence_info shall be parsed to know about custom options
           node.fence_info.split.slice(1 .. -1).each do |op|
             o1,o2 = op.split('=')
             pygments_options[o1.to_sym] = o2
