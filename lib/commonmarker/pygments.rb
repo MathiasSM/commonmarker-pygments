@@ -17,7 +17,7 @@ module CommonMarker
 
     def render_html(text, cmark_options = :DEFAULT, pygments_options = {})
       render_doc(text, cmark_options, pygments_options).to_html
-    end
+	end
 
     def process_ast(ast, pygments_options)
       ast.walk do |node|
@@ -26,11 +26,13 @@ module CommonMarker
 
           source = node.string_content
 
-          # node.fence_info shall be parsed to know about custom options
+		  puts node.fence_info
+		  # node.fence_info shall be parsed to know about custom options
           node.fence_info.split.slice(1 .. -1).each do |op|
             o1,o2 = op.split('=')
             pygments_options[o1.to_sym] = o2
-          end
+		  end
+
             
 
           html = '<figure class="highlight language-' + HTMLEntities.new.decode(node.fence_info) + '">' + ::Pygments.highlight(source, pygments_options) + '</figure>'

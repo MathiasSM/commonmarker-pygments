@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require './lib/commonmarker/pygments.rb'
+code = File.read('/home/mathias/Dropbox/CS/github/mathiassm.github.io/_source/adventures/icpc-2015-2016/_posts/2015-12-01-The-Origins.md')
+puts code
+CommonMarker::Pygments.render_html(code)
