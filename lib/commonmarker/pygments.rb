@@ -1,3 +1,4 @@
+require "commonmarker/pygments/version"
 require 'commonmarker'
 require 'pygments'
 require 'htmlentities'
