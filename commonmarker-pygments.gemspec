@@ -6,7 +6,7 @@ require 'commonmarker/pygments/version'
 Gem::Specification.new do |spec|
   spec.name          = "commonmarker-pygments"
   spec.version       = Commonmarker::Pygments::VERSION
-  spec.authors       = ["Mathias San Miguel"]
+  spec.authors       = ["Mathias San Miguel", "Anton Smirnov"]
   spec.email         = ["mathiassanmiguel@gmail.com"]
 
   spec.summary       = "A CommonMarker wrapper with syntax highlight support by Pygments."
